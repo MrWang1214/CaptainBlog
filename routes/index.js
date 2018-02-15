@@ -3,6 +3,7 @@ var moment = require('moment');
 var router = express.Router();
 var mysql = require('mysql');
 var path = require('path');
+var markdown = require('markdown-js');
 var bodyParser = require('body-parser');
 //var query = require("mysql.js");
 var pool = mysql.createPool({
@@ -104,6 +105,10 @@ router.get('/articles/:article_id', urlencodedParser, function (req, res) {
         return;
       } else {
         var article = rs[0];
+        var text = article.article_content;
+        console.log(text);
+        var html = markdown.makeHtml(text);    
+        article.article_content = html;
         res.render('article', { article: article });
       }
       // And done with the connection.
