@@ -57,6 +57,10 @@ a:hover, a:focus {
 	background-color: #eee;
 }
 
+article {
+	width: 80%;
+}
+
 body {
 	color: #444;
 	font-family: 'Lato', sans-serif;
@@ -215,7 +219,7 @@ figure {
 
 .entry-title {
 	text-align: left;
-	font-size: 1.9em;
+	font-size: 2.2em;
 	margin-bottom: 15px;
 	line-height: 1.6;
 	padding: 10px 0px 0;
@@ -227,6 +231,7 @@ figure {
 	font-size: 12px;
 	letter-spacing: 1px;
 	margin-bottom: 15px;
+	padding-bottom: 15px;
 }
 
 .entry-content {
@@ -234,6 +239,7 @@ figure {
 	line-height: 1.9;
 	font-weight: 300;
 	padding-bottom: 25px;
+	padding-top: 25px;
 	color: rgb(88, 88, 88);
 }
 
