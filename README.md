@@ -13,6 +13,7 @@ functions completed:
 realize markdown grammar analysis and dispaly on article.  
   
 todo list:
+* optimize markdown  
 * session-connect
 * function of search
 * ajax 
