@@ -19,6 +19,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/pace.min.js"></script>
 	<script src="js/modernizr.custom.js"></script>
+	<script src="js/echarts.js"></script>
 </head>
 
 <body>
@@ -48,7 +49,7 @@
 									<a href="/" data-hover="Index">Index</a>
 								</li>
 								<li class="cl-effect-11">
-									<a href="/full-width.html" data-hover="Blog">Blog</a>
+									<a href="/full-width.html" data-hover="Tree">Tree</a>
 								</li>
 								<li class="cl-effect-11">
 									<a href="/contact.html" data-hover="Contact">Contact</a>
@@ -83,153 +84,141 @@
 		<div class="container">
 			<div class="row">
 				<main class="col-md-12">
-					<article class="post post-1">
-						<header class="entry-header">
-							<h1 class="entry-title">
-								<a href="single.html">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-							</h1>
-							<div class="entry-meta">
-								<span class="post-category">
-									<a href="#">Web Design</a>
-								</span>
+					<div id="main" style="width: 100%;height:480px;"></div>
+					<script type="text/javascript">
+						// 基于准备好的dom，初始化echarts实例
+						var myChart = echarts.init(document.getElementById('main'));
 
-								<span class="post-date">
-									<a href="#">
-										<time class="entry-date" datetime="2012-11-09T23:15:57+00:00">February 2, 2013</time>
-									</a>
-								</span>
+						// 指定图表的配置项和数据
+						myChart.showLoading();
 
-								<span class="post-author">
-									<a href="#">Albert Einstein</a>
-								</span>
+						var data1 = {
+							"name": "Knowledge tree",
+							"children": [
+								{
+									"name": "Web develop",
+									"children": [
+										{
+											"name": "Front end",
+											"children": [
+												{ "name": "Javascript", "value": 721 },
+												{
+													"name": "HTML5", "children": [
+														{ "name": "Bootstrap", "value": 721 }
+													]
+												},
+												{ "name": "CSS3", "value": 4294 },
+											]
+										},
+										{
+											"name": "Back end",
+											"children": [
+												{
+													"name": "node.js",
+													"children": [
+														{ "name": "Express", "value": 721 }
+													]
+												},
+											]
+										}
+									]
+								},
+								{
+									"name": "Language",
+									"children": [
+										{
+											"name": "Javascript", "children": [
+												{ "name": ".js", "value": "20%" },
+												{ "name": "Back-end", "value": "20%" }
+											]
+										},
+										{
+											"name": "Python", "children": [
+												{ "name": "Spider", "value": "20%" }
+											]
+										},
+										{ "name": "Java", "value": "20%" },
+										{ "name": "C++", "value": "20%" }
+									]
+								},
+								{
+									"name": "Web security",
+									"children": [
+										{
+											"name": "Network", "children": [
+												{ "name": "Server", "value": "20%" },
+												{ "name": "TCP/IP", "value": "20%" }
+											]
+										},
+										{ "name": "Ids", "value": "20%" },
+										{ "name": "Stackoverflow", "value": "20%" }
+									]
+								},
+								{
+									"name": "Tools",
+									"children": [
+										{ "name": "Visual Studio", "value": "20%" },
+										{ "name": "VS code", "value": "20%" },
+										{ "name": "Github", "value": "20%" },
+										{ "name": "Photoshop", "value": "20%" },
+										{ "name": "Premiere", "value": "20%" },
+										{ "name": "After Effects", "value": "20%" }
+									]
+								},
+							]
+						};
 
-								<span class="comments-link">
-									<a href="">4 Comments</a>
-								</span>
-							</div>
-						</header>
-						<div class="entry-content clearfix">
-							<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There
-								are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
-								by injected humour, or randomised words which don’t look even slightly.</p>
-							<div class="read-more cl-effect-14">
-								<a href="#" class="more-link">Continue reading
-									<span class="meta-nav">→</span>
-								</a>
-							</div>
-						</div>
-					</article>
+						myChart.hideLoading();
 
-					<article class="post post-2">
-						<header class="entry-header">
-							<h1 class="entry-title">
-								<a href="single.html">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-							</h1>
-							<div class="entry-meta">
-								<span class="post-category">
-									<a href="#">Web Design</a>
-								</span>
+						myChart.setOption(option = {
+							tooltip: {
+								trigger: 'item',
+								triggerOn: 'mousemove'
+							},
+							series: [
+								{
+									type: 'tree',
 
-								<span class="post-date">
-									<a href="#">
-										<time class="entry-date" datetime="2012-11-09T23:15:57+00:00">February 2, 2013</time>
-									</a>
-								</span>
+									name: 'tree1',
 
-								<span class="post-author">
-									<a href="#">Albert Einstein</a>
-								</span>
+									data: [data1],
 
-								<span class="comments-link">
-									<a href="#">4 Comments</a>
-								</span>
-							</div>
-						</header>
-						<div class="entry-content clearfix">
-							<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There
-								are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
-								by injected humour, or randomised words which don’t look even slightly.</p>
-							<div class="read-more cl-effect-14">
-								<a href="#" class="more-link">Continue reading
-									<span class="meta-nav">→</span>
-								</a>
-							</div>
-						</div>
-					</article>
+									top: '0',
+									left: '15%',
+									bottom: '0',
+									right: '15%',
 
-					<article class="post post-3">
-						<header class="entry-header">
-							<h1 class="entry-title">
-								<a href="single.html">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-							</h1>
-							<div class="entry-meta">
-								<span class="post-category">
-									<a href="#" rel="category tag">Web Design</a>
-								</span>
+									symbolSize: 15,
 
-								<span class="post-date">
-									<a href="#">
-										<time class="entry-date" datetime="2012-11-09T23:15:57+00:00">February 2, 2013</time>
-									</a>
-								</span>
+									label: {
+										normal: {
+											position: 'bottom',
+											verticalAlign: 'middle',
+											align: 'center'
+										}
+									},
 
-								<span class="post-author">
-									<a href="#">Albert Einstein</a>
-								</span>
+									leaves: {
+										label: {
+											normal: {
+												position: 'right',
+												verticalAlign: 'middle',
+												align: 'left'
+											}
+										}
+									},
 
-								<span class="comments-link">
-									<a href="#">4 Comments</a>
-								</span>
-							</div>
-						</header>
-						<div class="entry-content clearfix">
-							<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There
-								are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
-								by injected humour, or randomised words which don’t look even slightly.</p>
-							<div class="read-more cl-effect-14">
-								<a href="#" class="more-link">Continue reading
-									<span class="meta-nav">→</span>
-								</a>
-							</div>
-						</div>
-					</article>
+									expandAndCollapse: true,
 
-					<article class="post post-4">
-						<header class="entry-header">
-							<h1 class="entry-title">
-								<a href="single.html">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-							</h1>
-							<div class="entry-meta">
-								<span class="post-category">
-									<a href="#" rel="category tag">Web Design</a>
-								</span>
+									animationDuration: 550,
+									animationDurationUpdate: 750
 
-								<span class="post-date">
-									<a href="#">
-										<time class="entry-date" datetime="2012-11-09T23:15:57+00:00">February 2, 2013</time>
-									</a>
-								</span>
-
-								<span class="post-author">
-									<a href="#">Albert Einstein</a>
-								</span>
-
-								<span class="comments-link">
-									<a href="#">4 Comments</a>
-								</span>
-							</div>
-						</header>
-						<div class="entry-content clearfix">
-							<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There
-								are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
-								by injected humour, or randomised words which don’t look even slightly.</p>
-							<div class="read-more cl-effect-14">
-								<a href="#" class="more-link">Continue reading
-									<span class="meta-nav">→</span>
-								</a>
-							</div>
-						</div>
-					</article>
+								}
+							]
+						});
+						// 使用刚指定的配置项和数据显示图表。
+						myChart.setOption(option);
+					</script>
 				</main>
 			</div>
 		</div>
