@@ -172,7 +172,7 @@ figure {
 
 .cl-effect-11 a {
 	padding: 10px 0;
-	color: #0972b4;
+	color: #000000;
 	text-shadow: none;
 } 
 
@@ -380,15 +380,13 @@ figure {
 }
 
 .widget-recent-posts ul li {
-    list-style-type: none;
+    list-style-type: disc;
     position: relative;
     line-height: 170%;
     margin-bottom: 10px;
 }
 
 .widget-recent-posts ul li::before {
-    content: '\f3d3';
-    font-family: "Ionicons";
     position: absolute;
     left: -17px;
     top: 3px;
@@ -403,15 +401,13 @@ figure {
 }
 
 .widget-archives ul li {
-    list-style-type: none;
+    list-style-type: disc;
     position: relative;
     line-height: 170%;
     margin-bottom: 10px;
 }
 
 .widget-archives ul li::before {
-    content: '\f3f3';
-    font-family: "Ionicons";
     position: absolute;
     left: -25px;
     top: 1px;
@@ -426,15 +422,13 @@ figure {
 }
 
 .widget-category ul li {
-    list-style-type: none;
+    list-style-type: disc;
     position: relative;
     line-height: 170%;
     margin-bottom: 10px;
 }
 
 .widget-category ul li::before {
-    content: '\f3fe';
-    font-family: "Ionicons";
     position: absolute;
     left: -25px;
     top: 1px;

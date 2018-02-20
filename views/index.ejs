@@ -9,7 +9,6 @@
 
 	    <!-- css -->
 		<link rel="stylesheet" href="/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/css/ionicons.min.css">
 		<link rel="stylesheet" href="/css/pace.css">
 	    <link rel="stylesheet" href="/css/custom.css">
 
@@ -17,7 +16,17 @@
 	    <script src="/js/jquery-2.1.3.min.js"></script>
 	    <script src="/js/bootstrap.min.js"></script>
 	    <script src="/js/pace.min.js"></script>
-	    <script src="/js/modernizr.custom.js"></script>
+		<script src="/js/modernizr.custom.js"></script>
+		<script type="text/javascript">
+		$(function () {
+ 			$(window).scroll(function () {
+    		var top = $(window).scrollTop() + 200;
+    		var left = $(window).scrollLeft() + 320;
+    		$("scroll").animate({ "top": top }, 30); //方式一 效果比较理想
+    		//$("#editInfo").css({ left: left + "px", top: top + "px" }); 方式二 有阴影
+  			});
+		});
+		</script>
 	</head>
 
 	<body>
@@ -91,7 +100,8 @@
 
 					
 					</main>
-					<aside class="col-md-4">
+						<aside class="col-md-4">
+						<div id="scroll" style="position:absolute;">
 						<div class="widget widget-recent-posts">		
 							<h3 class="widget-title">Recent Posts</h3>		
 							<ul>
@@ -107,23 +117,24 @@
 							<ul>
 							<%datetime.forEach(function(datetime){%>
 								<li>
-									<a href="/articles/achieve/<%= datetime.updataTime%>"><%= datetime.updataTime %></a>
+									<a href="/articles/achieve/<%= datetime.updataTime%>" data-hover="<%= datetime.updataTime %>"><%= datetime.updataTime %></a>
 								</li>
 							<%})%>
 							</ul>
 						</div>
-
 						<div class="widget widget-category">		
 							<h3 class="widget-title">Category</h3>		
 							<ul>
 							<%category.forEach(function(category){%>
 								<li>
-									<a href="/articles/sort/<%= category.sort_article_id%>"><%= category.sort_article_id %></a>
+									<a href="/articles/sort/<%= category.sort_article_id%>"data-hover="<%= category.sort_article_id %>"><%= category.sort_article_id %></a>
 								</li>
-						    <%})%>						
+							<%})%>						
 							</ul>
 						</div>
-					</aside>
+						</div>
+						</aside>
+					
 				</div>
 			</div>
 		</div>
